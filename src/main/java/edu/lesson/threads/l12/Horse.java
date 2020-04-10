@@ -19,9 +19,9 @@ public class Horse implements Runnable {
     public void run() {
         try {
             while (!Thread.interrupted()) {
-                synchronized (this) {
+//                synchronized (this) {
                     strides += rand.nextInt(3);
-                }
+//                }
                 barrier.await();
             }
         } catch (InterruptedException e) {
