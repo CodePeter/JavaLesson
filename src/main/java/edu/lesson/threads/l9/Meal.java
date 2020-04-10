@@ -10,28 +10,28 @@ public class Meal {
     public synchronized void cook() {
 //        if (ok==false)
 //            System.out.println("cooking");
-            ok = false;
+        ok = false;
         notifyAll();
     }
 
     public synchronized void waitForEat() throws InterruptedException {
-            if (ok==false) {
+        if (ok == false) {
 //                System.out.println("waiting for eating");
-                wait();
-            }
+            wait();
+        }
     }
 
     public synchronized void eat() {
 //        if (ok==true) {
         ok = true;
 //            System.out.println("eating");
-            notifyAll();
+        notifyAll();
 //        }
 
     }
 
     public synchronized void waitForCook() throws InterruptedException {
-        if (ok==true) {
+        if (ok == true) {
 //            System.out.println("waiting for cooking");
             wait();
         }

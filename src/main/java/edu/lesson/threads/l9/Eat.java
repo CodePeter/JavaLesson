@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Eat implements Runnable {
     private Meal meal;
+
     public Eat(Meal meal) {
         this.meal = meal;
     }
@@ -11,17 +12,17 @@ public class Eat implements Runnable {
     @Override
     public void run() {
 
-            try {
-                while (!Thread.interrupted()) {
-                    meal.waitForCook();
+        try {
+            while (!Thread.interrupted()) {
+                meal.waitForCook();
                 System.out.println("i am eating");
-                    TimeUnit.MILLISECONDS.sleep(200);
+                TimeUnit.MILLISECONDS.sleep(200);
                 meal.eat();
 //                TimeUnit.MILLISECONDS.sleep(200);
 
-                }
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
+    }
 }
